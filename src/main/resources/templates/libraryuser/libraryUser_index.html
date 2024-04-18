@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<section>
+		<div class="container p-5">
+			<p class="text-center fs-3 mt-4">User Dashboard</p>
+			<div class="row p-5">
+				<div class="col-md-4 mt-2">
+					<a href="/libraryuser/borrow_book" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-primary">
+
+								<h4>Borrow Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-2">
+					<a href="/libraryuser/buy_book" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-warning">
+
+								<h4>Buy Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-2">
+					<a href="/libraryuser/view_books" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-success">
+
+								<h4>View Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-4">
+					<a href="/libraryuser/returnBook" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-warning">
+
+								<h4>Return Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

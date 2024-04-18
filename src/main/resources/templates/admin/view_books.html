@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Books</title>
+</head>
+<body>
+    <h1>View Books</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Delete</th> <!-- New column for the delete button -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of books and display each book -->
+            <th:block th:each="book : ${books}">
+                <tr>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.category}"></td>
+                    <td th:text="${book.description}"></td>
+                    <td>
+                        <form th:action="@{/admin/deleteBook}" method="post">
+                            <input type="hidden" name="bookId" th:value="${book.id}" />
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+</html>

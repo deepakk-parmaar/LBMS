@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transactions</title>
+</head>
+
+<body>
+    <h1>View Transactions</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Book ID</th>
+                <th>User ID</th>
+                <th>Transaction Date</th>
+                <th>Number of Books</th>
+                <th>Payment Method</th>
+                <th>Total Amount</th>
+                <th>Transaction Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of transactions and display each transaction -->
+            <tr th:each="transaction : ${transactions}">
+                <td th:text="${transaction.id}"></td>
+                <td th:text="${transaction.book_id}"></td>
+                <td th:text="${transaction.user_id}"></td>
+                <td th:text="${transaction.transaction_date}"></td>
+                <td th:text="${transaction.number_of_books}"></td>
+                <td th:text="${transaction.payment_method}"></td>
+                <td th:text="${transaction.total_amount}"></td>
+                <td th:text="${transaction.transaction_info}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

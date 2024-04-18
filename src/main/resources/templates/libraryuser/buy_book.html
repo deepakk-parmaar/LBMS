@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    <h1>Title</h1>
+                </th>
+                <th>
+                    <h1>Author</h1>
+                </th>
+                <th>
+                    <h1>Category</h1>
+                </th>
+                <th>
+                    <h1>Description</h1>
+                </th>
+                <th>
+                    <h1>Action</h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of books and display each book -->
+            <th:block th:each="book : ${books}">
+                <tr>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.category}"></td>
+                    <td th:text="${book.description}"></td>
+                    <td>
+                        <a th:href="@{'/libraryuser/buy_book_form?bookId=' + ${book.id}}" class="text-decoration-none">
+                            <h1>Buy Book</h1>
+                        </a>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+
+</html>

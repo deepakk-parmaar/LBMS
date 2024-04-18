@@ -1,0 +1,94 @@
+CREATE TABLE book (
+    id bigint NOT NULL AUTO_INCREMENT,
+    author varchar(255),
+    category varchar(255),
+    description varchar(255),
+    title varchar(255),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE borrowed_book (
+    id bigint NOT NULL AUTO_INCREMENT,
+    book_id bigint,
+    user_id bigint,
+    borrowed_date date,
+    due_date date,
+    returned tinyint(1),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE users (
+    id bigint NOT NULL AUTO_INCREMENT,
+    name varchar(255),
+    email varchar(255),
+    mobile_number varchar(255),
+    profile_image varchar(255),
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE transaction_log (
+    id bigint NOT NULL AUTO_INCREMENT,
+    book_id bigint,
+    user_id bigint,
+    transaction_date datetime,
+    number_of_books int,
+    payment_method varchar(255),
+    total_amount double,
+    transaction_info varchar(255),
+    PRIMARY KEY (id)
+);
+
+ALTER TABLE borrowed_book
+ADD CONSTRAINT fk_borrowed_book_book_id
+FOREIGN KEY (book_id) REFERENCES book(id);
+
+ALTER TABLE borrowed_book
+ADD CONSTRAINT fk_borrowed_book_user_id
+FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+ALTER TABLE transaction_log
+ADD CONSTRAINT fk_transaction_log_book_id
+FOREIGN KEY (book_id) REFERENCES book(id);
+
+ALTER TABLE transaction_log
+ADD CONSTRAINT fk_transaction_log_user_id
+FOREIGN KEY (user_id) REFERENCES users(id);
+
+-- Insert data into the book table
+INSERT INTO book (author, category, description, title) 
+VALUES 
+('John Doe', 'Fiction', 'A thrilling novel', 'The Adventure Begins'),
+('Jane Smith', 'Non-Fiction', 'A self-help book', 'The Power of Habit'),
+('Mark Johnson', 'Fiction', 'A mystery novel', 'The Secret Key'),
+('Emily Brown', 'Science Fiction', 'An epic space opera', 'Galactic Odyssey'),
+('Michael Lee', 'Fantasy', 'A tale of dragons and magic', 'The Dragon King');
+
+-- Insert data into the users table
+INSERT INTO users (name, email, mobile_number, profile_image) 
+VALUES 
+('Alice Johnson', 'alice@example.com', '1234567890', 'profile1.jpg'),
+('Bob Smith', 'bob@example.com', '9876543210', 'profile2.jpg'),
+('Charlie Brown', 'charlie@example.com', '1231231234', 'profile3.jpg'),
+('David Lee', 'david@example.com', '4567890123', 'profile4.jpg'),
+('Eve Taylor', 'eve@example.com', '3213213210', 'profile5.jpg');
+
+-- Insert data into the borrowed_book table
+INSERT INTO borrowed_book (book_id, user_id, borrowed_date, due_date, returned)
+VALUES 
+(1, 1, '2024-04-01', '2024-04-15', 1),
+(2, 2, '2024-03-20', '2024-04-10', 0),
+(3, 3, '2024-04-05', '2024-04-20', 0),
+(4, 4, '2024-04-10', '2024-04-25', 0),
+(5, 5, '2024-03-15', '2024-03-30', 1);
+
+
+-- Insert data into the transaction_log table
+INSERT INTO transaction_log (book_id, user_id, transaction_date, number_of_books, payment_method, total_amount, transaction_info)
+VALUES 
+(1, 1, '2024-04-01 10:00:00', 1, 'Credit Card', 10.99, 'Transaction for book id 1'),
+(2, 2, '2024-03-20 09:30:00', 1, 'PayPal', 12.99, 'Transaction for book id 2'),
+(3, 3, '2024-04-05 11:45:00', 1, 'Credit Card', 9.99, 'Transaction for book id 3'),
+(4, 4, '2024-04-10 14:20:00', 1, 'Cash', 8.99, 'Transaction for book id 4'),
+(5, 5, '2024-03-15 16:00:00', 1, 'Credit Card', 11.99, 'Transaction for book id 5');

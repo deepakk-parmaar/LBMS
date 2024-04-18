@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="container p-5">
+			<p class="text-center fs-3 mt-4">Admin Dashboard</p>
+			<div class="row p-5">
+				<div class="col-md-4 mt-2">
+					<a href="/admin/loadAddBook" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-primary">
+	
+								<h4>Add Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-2">
+					<a href="/admin/view_borrowed_books" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-warning">
+								
+								<h4>Borrowed List</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-2">
+					<a href="/admin/view_books" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-success">
+								
+								<h4>View Book and Delete Book</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-4">
+					<a href="/admin/view_transactions" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-warning">
+
+								<h4>View Transactions</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-4">
+					<a href="/admin/view_users" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-primary">
+								
+								<h4>Users</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+				<div class="col-md-4 mt-4">
+					<a href="/admin/fines" class="text-decoration-none">
+						<div class="card card-sh">
+							<div class="card-body text-center text-primary">
+								
+								<h4>Fine</h4>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Borrowed Books</title>
+</head>
+
+<body>
+    <h1>View Borrowed Books</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>User ID</th>
+                <th>Borrowed Date</th>
+                <th>Due Date</th>
+                <th>Returned</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over the list of borrowed books and display each book -->
+            <th:block th:each="book : ${borrowedBooks}">
+                <tr>
+                    <td th:text="${book.bookId}"></td>
+                    <td th:text="${book.userId}"></td>
+                    <td th:text="${book.borrowedDate}"></td>
+                    <td th:text="${book.dueDate}"></td>
+                    <td th:text="${book.returned} ? 'Yes' : 'No'"></td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+</body>
+
+</html>
